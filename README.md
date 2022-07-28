@@ -1,4 +1,4 @@
-###### *(Info obtained from the [Project 1999 Wiki](wiki.project1999.com))*
+###### *(Info obtained from the [Project 1999 Wiki](https:\\wiki.project1999.com))*
 
 
 ## Antonica
