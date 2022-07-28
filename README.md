@@ -1,3 +1,6 @@
+#*(Info obtained from wiki.project1999.com))*
+
+
 ## Antonica
 
 ## Odus and Faydwer
