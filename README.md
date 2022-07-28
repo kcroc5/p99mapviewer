@@ -1,6 +1,6 @@
-###### *(Info obtained from the [Project 1999 Wiki](https:\\wiki.project1999.com))*
+###### *(Info obtained from the <a href="https:\\wiki.project1999.com">Project 1999 Wiki</a>)*
 
-<a href="https:\\wiki.project1999.com">Project 1999 Wiki</a>
+
 
 
 ## Antonica
