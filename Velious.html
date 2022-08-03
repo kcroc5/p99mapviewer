@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<p>OSD interface goes here</p>    
+    <div id="openseadragon1" style="width: 800px; height: 600px;"></div>
+    <script src="openseadragon/openseadragon.min.js"></script>
+    <script type="text/javascript">
+    var viewer = OpenSeadragon({
+    id: "openseadragon1",
+    prefixUrl: "openseadragon/images/",
+    tileSources: "openseadragon/dzc_output.xml"
+    });
+    </script>     
 </body>
 </html>
