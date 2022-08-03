@@ -1242,7 +1242,7 @@ function OpenSeadragon( options ){
             autoHideControls:       true,
             immediateRender:        false,
             minZoomImageRatio:      0.9, //-> closer to 0 allows zoom out to infinity
-            maxZoomPixelRatio:      2.0, //-> higher allows 'over zoom' into pixels
+            maxZoomPixelRatio:      1.1, //-> higher allows 'over zoom' into pixels
             smoothTileEdgesMinZoom: 1.1, //-> higher than maxZoomPixelRatio disables it
             iOSDevice:              isIOSDevice(),
             pixelsPerWheelLine:     40,
