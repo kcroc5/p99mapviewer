@@ -3,6 +3,7 @@ body {
     background: burlywood;
     text-align: center;
     font-family: 'Consolas', monospace;
+    align-items: center;
 }
 
 .wrapper {
