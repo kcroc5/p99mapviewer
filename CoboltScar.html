@@ -13,7 +13,21 @@
     var viewer = OpenSeadragon({
     id: "openseadragon1",
     prefixUrl: "openseadragon/images/",
-    tileSources: "openseadragon/dzc_output.xml"
+    tileSources: "openseadragon/dzc_output.xml",
+    overlays: [ {
+                id: 'test-overlay',
+                x: 0.4,
+                y: 0.4,
+                width: 0.2,
+                height: 0.15,
+                className: 'overlay',
+            } ],
+    viewportMargins: {
+                top: 0,
+                left: 10,
+                right: 10,
+                bottom: 0
+    }
     });
     </script>
     <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
