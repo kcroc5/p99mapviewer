@@ -6,10 +6,3 @@ body {
     align-items: center;
 }
 
-.wrapper {
-    margin-right: auto; /* 1 */
-    margin-left: auto; /* 1 */
-    max-width:1160px; /* 2 */
-    padding-right: 10px; /* 3 */
-    padding-left: 10px; /* 3 */
-    }
