@@ -14,16 +14,19 @@
     id: "openseadragon1",
     prefixUrl: "openseadragon/images/",
     tileSources: "openseadragon/dzc_output.xml",
-    overlays: [ {
-                id: 'test-overlay',
-                x: 0.4,
-                y: 0.4,
-                width: 0.2,
-                height: 0.15,
-                className: 'overlay'
-            } ]
+    });
+    var mousetracker = new OpenSeadragon.MouseTracker({
+        element: viewer.container,
+        moveHandler: function(event) {
+            var coords = event.position
+        }
     });
     </script>
+    <div id="overlay1">
+        <p><script type="text/javascript">
+            coords;
+        </script></p>
+    </div>
     <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
 </body>
 </html>
