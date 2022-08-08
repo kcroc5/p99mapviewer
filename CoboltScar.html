@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,17 +7,21 @@
     <title>Cobalt Scar</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <!-- - save this for later - <div id="overlay1"><p><script type="text/javascript">coords;</script></p></div> -->
 
+<body>
     <div id="openseadragon1" style="width: 1024px; height: 768px; margin-left: 420px; margin-right: 420px; margin-top: 50px; "></div>
     <script src="openseadragon/openseadragon.min.js"></script>
     <script type="text/javascript">
+    
+    var positionEl = document.querySelectorAll('.info .position')[0];
+    var zoomEl = document.querySelectorAll('.info .zoom')[0];
+
     var viewer = OpenSeadragon({
     id: "openseadragon1",
     prefixUrl: "openseadragon/images/",
     tileSources: "openseadragon/dzc_output.xml",
     });
+    
     var updateZoom = function() {
         var zoom = viewer.viewport.getZoom(true);
         var imageZoom = viewer.viewport.viewportToImageZoom(zoom);
@@ -24,6 +29,7 @@
         zoomEl.innerHTML = 'Zoom:<br>' + (Math.round(zoom * 100) / 100) + 
             '<br><br>Image Zoom:<br>' + (Math.round(imageZoom * 100) / 100);
     }
+   
     viewer.addHandler('open', function() {
         var tracker = new OpenSeadragon.MouseTracker({
             element: viewer.container,
@@ -39,8 +45,8 @@
             }
         })
     })
-    </script>
     
+    </script>
     <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
 </body>
 </html>
