@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="openseadragon1" style="width: 1024px; height: 768px; margin-left: 420px; margin-right: 420px; "></div>
+    <!-- - save this for later - <div id="overlay1"><p><script type="text/javascript">coords;</script></p></div> -->
+
+    <div id="openseadragon1" style="width: 1024px; height: 768px; margin-left: 420px; margin-right: 420px; margin-top: 50px; "></div>
     <script src="openseadragon/openseadragon.min.js"></script>
     <script type="text/javascript">
     var viewer = OpenSeadragon({
@@ -15,18 +17,30 @@
     prefixUrl: "openseadragon/images/",
     tileSources: "openseadragon/dzc_output.xml",
     });
-    var mousetracker = new OpenSeadragon.MouseTracker({
-        element: viewer.container,
-        moveHandler: function(event) {
-            var coords = event.position
-        }
-    });
+    var updateZoom = function() {
+        var zoom = viewer.viewport.getZoom(true);
+        var imageZoom = viewer.viewport.viewportToImageZoom(zoom);
+
+        zoomEl.innerHTML = 'Zoom:<br>' + (Math.round(zoom * 100) / 100) + 
+            '<br><br>Image Zoom:<br>' + (Math.round(imageZoom * 100) / 100);
+    }
+    viewer.addHandler('open', function() {
+        var tracker = new OpenSeadragon.MouseTracker({
+            element: viewer.container,
+            moveHandler: function(event) {
+                var webPoint = event.position;
+                var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
+                var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+                var zoom = viewer.viewport.getZoom(true);
+                var imageZoom = viewer.viewport.viewportToImageZoom(zoom);
+                positionEl.innerHTML = 'Web:<br>' + webPoint.toString() + 
+                    '<br><br>Viewport:<br>' + viewportPoint.toString() +
+                    '<br><br>Image:<br>' + imagePoint.toString();
+            }
+        })
+    })
     </script>
-    <div id="overlay1">
-        <p><script type="text/javascript">
-            coords;
-        </script></p>
-    </div>
+    
     <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
 </body>
 </html>
