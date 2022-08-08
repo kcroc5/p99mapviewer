@@ -19,7 +19,7 @@
     var viewer = OpenSeadragon({
     id: "openseadragon1",
     prefixUrl: "openseadragon/images/",
-    tileSources: "openseadragon/dzc_output.xml",
+    tileSources: "openseadragon/dzc_output.xml"
     });
     
     var updateZoom = function() {
@@ -42,9 +42,15 @@
                 positionEl.innerHTML = 'Web:<br>' + webPoint.toString() + 
                     '<br><br>Viewport:<br>' + viewportPoint.toString() +
                     '<br><br>Image:<br>' + imagePoint.toString();
+
+                updateZoom();
             }
-        })
-    })
+        });
+
+        tracker.setTracking(true);
+
+        viewer.addHandler('animation', updateZoom);
+    });
     
     </script>
     <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
