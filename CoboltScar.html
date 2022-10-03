@@ -6,48 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cobalt Scar</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+</head> 
 <!-- margin-left: 420px; margin-right: 420px; margin-top: 50px;-->
-<body>
-    <div id="openseadragon1" style="width: 1024px; height: 768px;"></div>
-    <script src="openseadragon/openseadragon.min.js"></script>
-    <script type="text/javascript">
-    
-    var positionEl = document.querySelectorAll('.info .position')[0];
+<div style="padding: 0 1.5em; height: 500px;">
+    <div class ="info" style="float: left; width: 200px;">
+        <div class ="position"></div>
+    </div>
 
-    var viewer = OpenSeadragon({
-    id: "openseadragon1",
-    prefixUrl: "openseadragon/images/",
-    tileSources: "openseadragon/dzc_output.xml"
-    });
+        <body>
+            <div id="openseadragon1" style="width: 1024px; height: 768px;"></div>
+            <script src="openseadragon/openseadragon.min.js"></script>
+            <script type="text/javascript">
     
+            var positionEl = document.querySelectorAll('.info .position')[0];
+
+           var viewer = OpenSeadragon({
+            id: "openseadragon1",
+            prefixUrl: "openseadragon/images/",
+            tileSources: "openseadragon/dzc_output.xml"
+            });
     
    
-    viewer.addHandler('open', function() {
-        var tracker = new OpenSeadragon.MouseTracker({
-            element: viewer.container,
-            moveHandler: function(event) {
-                var webPoint = event.position;
-                var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
-                var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+   
+            viewer.addHandler('open', function() {
+                var tracker = new OpenSeadragon.MouseTracker({
+                    element: viewer.container,
+                    moveHandler: function(event) {
+                        var webPoint = event.position;
+                        var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
+                        var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
                 
-                positionEl.innerHTML = 'Web:<br>' + webPoint.toString() + 
-                    '<br><br>Viewport:<br>' + viewportPoint.toString() +
-                    '<br><br>Image:<br>' + imagePoint.toString();
-
-                console.log(tracker);
-
-                
-            }
+                        positionEl.innerHTML = 'Web:<br>' + webPoint.toString() + 
+                            '<br><br>Viewport:<br>' + viewportPoint.toString() +
+                            '<br><br>Image:<br>' + imagePoint.toString();                
+                    }
             
-        });
+                });
 
-        tracker.setTracking(true);
+                tracker.setTracking(true);
 
-    });
+            });
+                                                    
     
-    
-    </script>
-    <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
-</body>
+            </script>
+            <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     
+        </body>
+</div>
 </html>
+
+
