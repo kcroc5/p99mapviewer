@@ -22,15 +22,6 @@
                 prefixUrl: "openseadragon/images/",
                 tileSources: "openseadragon/dzc_output.xml"
                 });
-            const margins = viewer.viewport.getMargins();
-            viewer.viewport.setMargins({
-                left: 30,
-                top: 10,
-                right: 30,
-                bottom: 10,
-                },
-                margins,
-                );
    
             viewer.addHandler('open', function() {
                 var tracker = new OpenSeadragon.MouseTracker({
