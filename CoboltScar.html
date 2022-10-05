@@ -6,7 +6,7 @@
     <title>Cobalt Scar</title>
     <link rel="stylesheet" href="styles.css">
 </head> 
-<!-- -->
+<!--TO DO: Look into image-to-game coordinate conversion to display in-game coords (As an overlay?) for easier zone navigation -->
 <div class="topnav">
     <a class="active" href="index.html">Home</a>
     <a href="Velious.html">Velious</a>
@@ -25,7 +25,12 @@
             var viewer = OpenSeadragon({
                 id: "openseadragon1",
                 prefixUrl: "openseadragon/images/",
-                tileSources: "openseadragon/dzc_output.xml"
+                tileSources: "openseadragon/dzc_output.xml",
+                panHorizontal: false,
+                defaultZoomLevel: 1,
+                minZoomLevel: 1,
+                maxZoomLevel: 1,
+                visibilityRatio: 1
                 });
    
             viewer.addHandler('open', function() {
@@ -44,9 +49,10 @@
                 tracker.setTracking(true);
             });
             </script>
-            <!--<p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>     -->
+            <!--     -->
         </body>
     </div>
+    <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>
 </html>
 
 
