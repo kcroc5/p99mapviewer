@@ -42,8 +42,12 @@
                         var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
                         positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString(); 
                         imgPointString = imagePoint.toString();
-                        pointX = imgPointString.replace(/[{(,)}]/g, '');
-                        console.log(pointX);
+                        pointParsed = imgPointString.replace(/,/g, ' ')
+                        pointParsed = pointParsed.replace(/[{()}]/g, '');
+                        pointArray = pointParsed.split(" ");
+                        let pointX = pointArray[0];
+                        let pointY = pointArray[1];
+                        console.log(pointX, pointY);
 
                     }
                 });
