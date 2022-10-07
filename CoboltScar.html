@@ -40,10 +40,12 @@
                         var webPoint = event.position;
                         var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
                         var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+                        console.log(typeof imagePoint);
                 
-                        positionEl.innerHTML = 'Web:<br>' + webPoint.toString() + 
-                            '<br><br>Viewport:<br>' + viewportPoint.toString() +
-                            '<br><br>Image:<br>' + imagePoint.toString();                
+                        positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString(); 
+                        //var imgPointString = imagePoint.toString();
+
+
                     }
                 });
                 tracker.setTracking(true);
