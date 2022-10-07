@@ -6,8 +6,6 @@
     <title>Cobalt Scar</title>
     <link rel="stylesheet" href="styles.css">
 </head> 
-<!--TO DO: Look into image-to-game coordinate conversion to display in-game coords (As an overlay?) for easier zone navigation-->
-<!--Maybe make a grid in OSD itself and scale the units to the extreme edges of the map grid?-->
 <div class="topnav">
     <a class="active" href="index.html">Home</a>
     <a href="Velious.html">Velious</a>
@@ -43,12 +41,14 @@
                         positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString(); 
                         imgPointString = imagePoint.toString();
                         pointParsed = imgPointString.replace(/,/g, ' ')
-                        pointParsed = pointParsed.replace(/[{()}]/g, '');
+                        pointParsed = pointParsed.replace(/()/g, '');
                         pointArray = pointParsed.split(" ");
                         let pointX = pointArray[0];
+                        pointX = parseInt(pointX);
                         let pointY = pointArray[1];
+                        pointY = parseInt(pointY);
                         console.log(pointX, pointY);
-
+                        console.log(typeof pointX, typeof pointY);
                     }
                 });
                 tracker.setTracking(true);
