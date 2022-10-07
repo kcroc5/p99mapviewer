@@ -44,9 +44,9 @@
                         pointParsed = pointParsed.replace(/()/g, '');
                         pointArray = pointParsed.split(" ");
                         let pointX = pointArray[0];
-                        pointX = parseInt(pointX);
+                        pointX = parseFloat(pointX);
                         let pointY = pointArray[1];
-                        pointY = parseInt(pointY);
+                        pointY = parseFloat(pointY);
                         console.log(pointX, pointY);
                         console.log(typeof pointX, typeof pointY);
                     }
