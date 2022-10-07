@@ -40,11 +40,10 @@
                         var webPoint = event.position;
                         var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
                         var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
-                        console.log(typeof imagePoint);
-                        console.log(imagePoint.toString);
                         positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString(); 
-                        //var imgPointString = imagePoint.toString();
-
+                        imgPointString = imagePoint.toString();
+                        var imgPointX = imgPointString.split(" ");
+                        console.log(imgPointX);
 
                     }
                 });
