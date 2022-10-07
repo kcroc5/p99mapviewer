@@ -41,7 +41,7 @@
                         positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString(); 
                         imgPointString = imagePoint.toString();
                         pointParsed = imgPointString.replace(/,/g, ' ')
-                        pointParsed = pointParsed.replace(/()/g, '');
+                        pointParsed = pointParsed.replace(/[{()}]/g, '');
                         pointArray = pointParsed.split(" ");
                         console.log(pointArray);
                         let pointX = pointArray[0];
