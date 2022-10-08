@@ -20,7 +20,10 @@
             <script type="text/javascript">
     
             var positionEl = document.querySelectorAll('.info .position')[0];
-            
+
+            function float2int (value) {
+                return value | 0;
+            }
 
             var viewer = OpenSeadragon({
                 id: "openseadragon1",
@@ -50,8 +53,8 @@
                         pointY = parseFloat(pointY);                            //
                         var eqPointX = 9.1 * (263 - pointX);
                         var eqPointY = 8.3 * (224 - pointY);
-                        Math.trunc(eqPointX);
-                        Math.trunc(eqPointY);
+                        eqPointX = float2int(eqPointX);
+                        eqPointY = float2int(eqPointY);
                         positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' + eqPointY.toString();
                     }
                 });
