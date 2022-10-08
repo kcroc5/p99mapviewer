@@ -50,7 +50,9 @@
                         pointY = parseFloat(pointY);                            //
                         var eqPointX = 9.1 * (263 - pointX);
                         var eqPointY = 8.3 * (224 - pointY);
-                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + eqPointY.toString();
+                        Number((eqPointX).toFixed(1));
+                        Number((eqPointY).toFixed(1));
+                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' + eqPointY.toString();
                     }
                 });
                 tracker.setTracking(true);
