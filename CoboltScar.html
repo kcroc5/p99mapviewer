@@ -21,6 +21,7 @@
     
             var positionEl = document.querySelectorAll('.info .position')[0];
             
+
             var viewer = OpenSeadragon({
                 id: "openseadragon1",
                 prefixUrl: "openseadragon/images/",
@@ -37,25 +38,24 @@
                     moveHandler: function(event) {
                         var webPoint = event.position;
                         var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
-                        var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
-                        positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString(); 
-                        imgPointString = imagePoint.toString();
-                        pointParsed = imgPointString.replace(/,/g, ' ')
-                        pointParsed = pointParsed.replace(/[{()}]/g, '');
-                        pointArray = pointParsed.split(" ");
-                        console.log(pointArray);
-                        let pointX = pointArray[0];
-                        pointX = parseFloat(pointX);
-                        let pointY = pointArray[1];
-                        pointY = parseFloat(pointY);
-                        //console.log(pointX, pointY);
-                       
+                        var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint); 
+                        //positionEl.innerHTML = '<br><br>Image:<br>' + imagePoint.toString();        
+                        imgPointString = imagePoint.toString();                 //
+                        pointParsed = imgPointString.replace(/,/g, ' ')         //
+                        pointParsed = pointParsed.replace(/[{()}]/g, '');       //
+                        pointArray = pointParsed.split(" ");                    // THIS CODE SUCKS
+                        let pointX = pointArray[0];                             // IT CAN BE REDUCED
+                        pointX = parseFloat(pointX);                            //
+                        let pointY = pointArray[1];                             //
+                        pointY = parseFloat(pointY);                            //
+                        var eqPointX = 9.1 * (263 - pointX);
+                        var eqPointY = 8.3 * (224 - pointY);
+                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + eqPointY.toString();
                     }
                 });
                 tracker.setTracking(true);
             });
             </script>
-            <!-- -->
         </body>
     </div>
     <p id="footer"><i>Built using <a href="https://openseadragon.github.io/">OpenSeadragon</a></i></p>
