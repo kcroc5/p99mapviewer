@@ -43,15 +43,15 @@
                         imgPointString = imagePoint.toString();                 //
                         pointParsed = imgPointString.replace(/,/g, ' ')         //
                         pointParsed = pointParsed.replace(/[{()}]/g, '');       //
-                        pointArray = pointParsed.split(" ");                    // THIS CODE SUCKS
+                        pointArray = pointParsed.split(" ");                    // THIS CODE IS INEFFICIENT
                         let pointX = pointArray[0];                             // IT CAN BE REDUCED
                         pointX = parseFloat(pointX);                            //
                         let pointY = pointArray[1];                             //
                         pointY = parseFloat(pointY);                            //
                         var eqPointX = 9.1 * (263 - pointX);
                         var eqPointY = 8.3 * (224 - pointY);
-                        Number((eqPointX).toFixed(1));
-                        Number((eqPointY).toFixed(1));
+                        Math.trunc(eqPointX);
+                        Math.trunc(eqPointY);
                         positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' + eqPointY.toString();
                     }
                 });
