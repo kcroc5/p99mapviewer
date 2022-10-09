@@ -49,9 +49,9 @@
                         pointParsed = pointParsed.replace(/[{()}]/g, '');       //
                         pointArray = pointParsed.split(" ");                    // THIS CODE IS INEFFICIENT
                         let pointX = pointArray[0];                             // IT CAN BE REDUCED
-                        pointX = parseFloat(pointX);                            //
+                        //pointX = parseFloat(pointX);                            //
                         let pointY = pointArray[1];                             //
-                        pointY = parseFloat(pointY);                            //
+                        //pointY = parseFloat(pointY);                            //
                         var eqPointX = 9.09090909 * (263 - pointX); // last parts in ()s need to be adjusted
                         var eqPointY = 8.33333333 * (224 - pointY);
                         eqPointX = float2int(eqPointX);
