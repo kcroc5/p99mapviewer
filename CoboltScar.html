@@ -20,7 +20,6 @@
             <script type="text/javascript">
     
             var positionEl = document.querySelectorAll('.info .position')[0];
-            //var positionE2 = document.querySelectorAll('.info .position')[0];
 
             function float2int (value) {
                 return value | 0;
@@ -43,20 +42,18 @@
                         var webPoint = event.position;
                         var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
                         var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);       
-                        imgPointString = imagePoint.toString();                 //
-                        pointParsed = imgPointString.replace(/,/g, ' ')         //
-                        pointParsed = pointParsed.replace(/[{()}]/g, '');       //
-                        pointArray = pointParsed.split(" ");                    // THIS CODE IS INEFFICIENT
-                        let pointX = pointArray[0];                             // IT CAN BE REDUCED
-                        //pointX = parseFloat(pointX);                          //
-                        let pointY = pointArray[1];                             //
-                        //pointY = parseFloat(pointY);                          //
+                        imgPointString = imagePoint.toString();                 
+                        pointParsed = imgPointString.replace(/,/g, ' ')         
+                        pointParsed = pointParsed.replace(/[{()}]/g, ''); //idk why the brackets and square brackets are needed here       
+                        pointArray = pointParsed.split(" ");                    
+                        let pointX = pointArray[0];                             
+                        let pointY = pointArray[1];                             
                         var eqPointX = 8.33333333 * (263 - pointX);
                         var eqPointY = 8.33333333 * (224 - pointY);
                         eqPointX = float2int(eqPointX);
                         eqPointY = float2int(eqPointY);
-                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' + eqPointY.toString() + 
-                            '<br><br>ImgPointCoords:<br>' + imagePoint.toString();
+                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' 
+                        + eqPointY.toString();
                     }
                 });
                 tracker.setTracking(true);
