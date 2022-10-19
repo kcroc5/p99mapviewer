@@ -20,7 +20,6 @@
             <script type="text/javascript">
     
             var positionEl = document.querySelectorAll('.info .position')[0];
-            var positionE2 = document.querySelectorAll('.info .position')[1];
 
             function float2int (value) {
                 return value | 0;
@@ -47,10 +46,11 @@
                         var webPoint = event.position;
                         var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
                         var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
-                        positionE2.innerHTML = '<br><br>OSD Image Coordinates:<br>' + imagePoint.toString(); //Needed for testing and adding overlays    
-                        imgPointString = imagePoint.toString();                 
+                        //positionE2.innerHTML = '<br><br>OSD Image Coordinates:<br>' + imagePoint.toString();
+                        imgPointString = imagePoint.toString();
+                        console.log(imgPointString);                       //testing
                         pointParsed = imgPointString.replace(/,/g, ' ')         
-                        pointParsed = pointParsed.replace(/[{()}]/g, ''); //Gets rid of parentheses       
+                        pointParsed = pointParsed.replace(/[{()}]/g, ''); 
                         pointArray = pointParsed.split(" ");                    
                         let pointX = pointArray[0];                             
                         let pointY = pointArray[1];                             
