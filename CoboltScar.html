@@ -25,9 +25,9 @@
                 return value | 0;
             }
 
-            var viewer = OpenSeadragon({
-                id: "openseadragon1",
-                prefixUrl: "openseadragon/images/",
+            var viewer = OpenSeadragon({                                    //TO DO: Stitch all the maps together and make it available
+                id: "openseadragon1",                                       //  on the home page
+                prefixUrl: "openseadragon/images/",                         //Maybe add some analytical website-tracky stuff towards the end
                 tileSources: "openseadragon/dzc_output.xml",
                 defaultZoomLevel: 1,
                 minZoomLevel: 1,
@@ -41,10 +41,11 @@
                     moveHandler: function(event) {
                         var webPoint = event.position;
                         var viewportPoint = viewer.viewport.pointFromPixel(webPoint);
-                        var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);       
+                        var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
+                        positionEl.innerHTML = '<br><br>OSD Image Coordinates:<br>' + imagePoint.toString(); //Needed for testing and adding overlays    
                         imgPointString = imagePoint.toString();                 
                         pointParsed = imgPointString.replace(/,/g, ' ')         
-                        pointParsed = pointParsed.replace(/[{()}]/g, ''); //idk why the brackets and square brackets are needed here       
+                        pointParsed = pointParsed.replace(/[{()}]/g, ''); //Gets rid of parentheses       
                         pointArray = pointParsed.split(" ");                    
                         let pointX = pointArray[0];                             
                         let pointY = pointArray[1];                             
@@ -52,8 +53,8 @@
                         var eqPointY = 8.33333333 * (224 - pointY);
                         eqPointX = float2int(eqPointX);
                         eqPointY = float2int(eqPointY);
-                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' 
-                        + eqPointY.toString();
+                        positionEl.innerHTML = '<br><br>EQ Coordinates:<br>' + eqPointX.toString() + ' ' + eqPointY.toString();
+                        
                     }
                 });
                 tracker.setTracking(true);
