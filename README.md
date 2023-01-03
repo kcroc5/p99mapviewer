@@ -10,7 +10,7 @@ Current features:
 
 WIP:
 
--Bullet points with overlays that reveal more information about the location the mouse is hovering over
+-Bullet points with overlays that reveal more information about the point of interest
 
 -Mob spawn points, filter points based on mob name, level range, etc.
 
