@@ -16,7 +16,7 @@
     </div>
         <body>
             <div id="openseadragon1" style="float: right; width: 1024px; height: 768px; background: gray"></div>
-            <script src="/openseadragon/openseadragon.min.js"></script> 
+            <script src="openseadragon/openseadragon.min.js"></script> 
             <script type="text/javascript">
     
             var positionEl = document.querySelectorAll('.info .position')[0];
@@ -42,16 +42,16 @@
                     className: 'highlight'
                     }],
 
-                onPageChange: function() {
+                //onPageChange: function() {
                     //Tooltips
-                    setTimeout(bindtooltip, 2000);
-                }
+                //    setTimeout(bindtooltip, 2000);
+               // }
                 });
 
-            jQuery(function() {
-                //Tooltips
-                setTimeout(bindtooltip, 2000);
-            });
+            //jQuery(function() {
+            //    //Tooltips
+            //    setTimeout(bindtooltip, 2000);
+            //});
    
             viewer.addHandler('open', function() {
                 var tracker = new OpenSeadragon.MouseTracker({
