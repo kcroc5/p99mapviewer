@@ -1,4 +1,4 @@
-n<html lang="e">
+<html lang="e">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,20 +31,18 @@ n<html lang="e">
             var viewer = OpenSeadragon({                                   //TO DO: Stitch all the maps together and make it available
                 id: "openseadragon1",                                         //on the home page
                 prefixUrl: "openseadragon/images/",                        //Maybe add some analytical website-tracky stuff towards the end
-                tileSources: [{
-                    id: "openseadragon/dzc_output.xml", // <---------------//Use custom tile sources and fetch the map images from the p99 wiki
-                    defaultZoomLevel: 1,                                      //instead of downloading and processing them manually
-                    minZoomLevel: 1,                                       //Improve accuracy of coordinate finder (floating point inaccuracy?)
-                    maxZoomLevel: 3,
-                    visibilityRatio: 1,                                           
-                    overlays: [{                                                //Changes 1/9/23:     
-                        id:'V-CS-1',                                            //added jquery script stuff for overlay popup
-                        x: 0.00,                                                //added test overlay
-                        y: 0.00,
-                        width: 0.2,
-                        height: 0.25,
-                        className: 'highlight'
-                        }]
+                tileSources: "openseadragon/dzc_output.xml", // <---------------//Use custom tile sources and fetch the map images from the p99 wiki
+                defaultZoomLevel: 1,                                      //instead of downloading and processing them manually
+                minZoomLevel: 1,                                       //Improve accuracy of coordinate finder (floating point inaccuracy?)
+                maxZoomLevel: 3,
+                visibilityRatio: 1,                                           
+                overlays: [{                                                //Changes 1/9/23:     
+                    id:'V-CS-1',                                            //added jquery script stuff for overlay popup
+                    x: 0.00,                                                //added test overlay
+                    y: 0.00,
+                    width: 0.2,
+                    height: 0.25,
+                    className: 'highlight'
                     }],
 
                 onPageChange: function() {
