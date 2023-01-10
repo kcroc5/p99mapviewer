@@ -63,12 +63,12 @@
                         var imagePoint = viewer.viewport.viewportToImageCoordinates(viewportPoint);
                         //positionE2.innerHTML = '<br><br>OSD Image Coordinates:<br>' + imagePoint.toString(); testing purposes
                         imgPointString = imagePoint.toString();
-                        console.log(imgPointString);                       
+                        //console.log(imgPointString);                       
                         pointParsed = imgPointString.replace(/,/g, ' ')         
                         pointParsed = pointParsed.replace(/[{()}]/g, '');  //only works with all the brackets idk how regex works man
                         pointArray = pointParsed.split(" ");                    
-                        let pointX = pointArray[0];                    //forgot why "let" is needed here, I guess         
-                        let pointY = pointArray[1];                    //because these two vars cannot be redeclarable?          
+                        let pointX = pointArray[0];                             
+                        let pointY = pointArray[1];                             
                         var eqPointX = 8.33333333 * (263 - pointX);
                         var eqPointY = 8.33333333 * (224 - pointY);
                         eqPointX = float2int(eqPointX);
