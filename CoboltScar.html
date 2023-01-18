@@ -28,7 +28,7 @@
 
             var viewer = OpenSeadragon({                                   //TO DO: Stitch all the maps together and make it available
                 id: "openseadragon1",                                         //on the home page as one big zoomable image
-                prefixUrl: "openseadragon/images/",                        //Maybe add some analytical website-tracky stuff towards the end
+                prefixUrl: "openseadragon/images/",                        
                 tileSources: "openseadragon/dzc_output.xml", // <--Use custom tile sources and fetch the map images from the p99 wiki
                 defaultZoomLevel: 1,                                      //instead of downloading and processing them manually
                 minZoomLevel: 1,                                       //Improve accuracy of coordinate finder (floating point inaccuracy?)
@@ -65,7 +65,7 @@
                         imgPointString = imagePoint.toString();
                         //console.log(imgPointString);                       
                         pointParsed = imgPointString.replace(/,/g, ' ')         
-                        pointParsed = pointParsed.replace(/[{()}]/g, '');  //only works with all the brackets idk how regex works man
+                        pointParsed = pointParsed.replace(/[{()}]/g, '');  
                         pointArray = pointParsed.split(" ");                    
                         let pointX = pointArray[0];                             
                         let pointY = pointArray[1];                             
